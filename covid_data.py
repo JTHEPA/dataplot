@@ -2,11 +2,7 @@ import json
 import pandas as pd
 import matplotlib.pyplot as plt
 
-data = pd.DataFrame(json.load(open("covid.json")))
-data.columns = data.columns.str.split().str.join(" ")
-data["Date"] = pd.to_datetime(data["Date"])
-data = data.set_index("Date")
-data = data.apply(lambda c: c.astype(str).str.replace(" ", "").astype(int))
+
 
 fig, (a, b) = plt.subplots(1, 2, figsize=(13, 5))
 data[["Total Confirmed Cases", "Active Cases", "Total Recovered", "Total Deaths"]].plot(ax=a, title="Cumulative")
