@@ -1,0 +1,1 @@
+Here i demostrate plotting json data simply by using pandas and matplotlib
